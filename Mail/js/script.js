@@ -30,26 +30,41 @@ const my_mailing_list = [
     "mail-14@gmail.com",
     "mail-15@gmail.com"
 ];
-    // console.log(my_mailing_list);
+// console.log(my_mailing_list);
 
 // step 2.
-let user_mail = prompt("inserisci il tuo indirizzo e-mail");
-    // console.log(user_mail);
+const button = document.getElementById("button");
 
+button.addEventListener("click", 
+    function () {
+    // console.log("ciao");
+    let user_mail = document.getElementById("user-mail").value;
+    document.querySelector(".user-mail").innerHTML = user_mail;
+    // console.log(user_mail);
+   
+   
 // steps 3. & 4.
 let mail_absent = true;
 
+
 for (i = 0; i < my_mailing_list.length; i++) {
+
     const current_mail = my_mailing_list[i];
 
     if (user_mail == current_mail) {
         mail_absent = false;
-    } 
+    }
 }
 
 if (mail_absent == false) {
-    console.log("Benvenuto " + user_mail);
+    // console.log("Benvenuto " + user_mail);
+    document.getElementById("welcome-or-not").innerHTML = "il tuo indirizzo è presente nella nostra mailing-list!";
 }
 else {
-    console.log("L'indirizzo e-mail inserito non è valido, ricarica la pagina per riprovare!");
+    // console.log("L'indirizzo e-mail inserito non è valido, ricarica la pagina per riprovare!");
+    document.getElementById("welcome-or-not").innerHTML = "Ci dispiace, l'indirizzo e-mail che hai inserito non è valido!"
 }
+    }
+);
+
+
